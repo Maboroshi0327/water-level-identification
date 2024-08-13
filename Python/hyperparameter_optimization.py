@@ -31,7 +31,7 @@ def create_model(x_train, y_train, x_test, y_test):
     # -------------------------model--------------------------
     model = models.Sequential()
 
-    model.add(layers.Dense(node1, input_shape=(1249, )))
+    model.add(layers.Dense(node1, input_shape=(283, )))
     model.add(layers.Activation(activation))
 
     model.add(layers.Dense(node2))

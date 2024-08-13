@@ -15,7 +15,7 @@ def Min_Max_Normalization(array, min=0, max=1):    # min,max=輸出資料大小�
 # -------------------------------------------------------------------------------------------------
 # Data
 def train_data(sampleRate):
-    x_train = np.zeros((500, 1250-1))
+    x_train = np.zeros((500, 283))
     y_train = np.zeros((500, 5))
     for i in np.arange(0, 100):
         list100 = np.load('./trainDATA/train100ml{}.npy'.format(i + 1))
@@ -28,11 +28,11 @@ def train_data(sampleRate):
         list300 = signal.resample_poly(list300, sampleRate, 50000)
         list400 = signal.resample_poly(list400, sampleRate, 50000)
         list500 = signal.resample_poly(list500, sampleRate, 50000)
-        fft100 = np.abs(fft(list100))[1:1250]
-        fft200 = np.abs(fft(list200))[1:1250]
-        fft300 = np.abs(fft(list300))[1:1250]
-        fft400 = np.abs(fft(list400))[1:1250]
-        fft500 = np.abs(fft(list500))[1:1250]
+        fft100 = np.abs(fft(list100))[18:301]
+        fft200 = np.abs(fft(list200))[18:301]
+        fft300 = np.abs(fft(list300))[18:301]
+        fft400 = np.abs(fft(list400))[18:301]
+        fft500 = np.abs(fft(list500))[18:301]
         x_train[i*5] = fft100
         x_train[i*5 + 1] = fft200
         x_train[i*5 + 2] = fft300
@@ -49,7 +49,7 @@ def train_data(sampleRate):
 
 
 def test_data(sampleRate):
-    x_test = np.zeros((500, 1250-1))
+    x_test = np.zeros((500, 283))
     y_test = np.zeros((500, 5))
     for i in np.arange(0, 100):
         list100 = np.load('./testDATA/test100ml{}.npy'.format(i + 1))
@@ -62,11 +62,11 @@ def test_data(sampleRate):
         list300 = signal.resample_poly(list300, sampleRate, 50000)
         list400 = signal.resample_poly(list400, sampleRate, 50000)
         list500 = signal.resample_poly(list500, sampleRate, 50000)
-        fft100 = np.abs(fft(list100))[1:1250]
-        fft200 = np.abs(fft(list200))[1:1250]
-        fft300 = np.abs(fft(list300))[1:1250]
-        fft400 = np.abs(fft(list400))[1:1250]
-        fft500 = np.abs(fft(list500))[1:1250]
+        fft100 = np.abs(fft(list100))[18:301]
+        fft200 = np.abs(fft(list200))[18:301]
+        fft300 = np.abs(fft(list300))[18:301]
+        fft400 = np.abs(fft(list400))[18:301]
+        fft500 = np.abs(fft(list500))[18:301]
         x_test[i*5] = fft100
         x_test[i*5 + 1] = fft200
         x_test[i*5 + 2] = fft300
@@ -80,3 +80,11 @@ def test_data(sampleRate):
     for index in np.arange(x_test.shape[0]):
         x_test[index] = Min_Max_Normalization(x_test[index], min=0, max=1)
     return x_test, y_test
+
+if __name__ == "__main__":
+    x_train, y_train = train_data(30000)
+    x_test, y_test = test_data(30000)
+    print(x_train.shape)
+    print(y_train.shape)
+    print(x_test.shape)
+    print(y_test.shape)

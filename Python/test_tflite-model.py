@@ -6,7 +6,7 @@ from My_Functions import test_data
 
 
 def data():
-    sampleRate = 30000
+    sampleRate = 20000
     x_test, y_test = test_data(sampleRate)
     y_test = np.argmax(y_test, axis=1)
     return x_test, y_test

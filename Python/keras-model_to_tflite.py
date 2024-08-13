@@ -6,7 +6,7 @@ import numpy as np
 
 if __name__ == '__main__':
     models = tf.keras.models
-    model = models.load_model('./models/30000_3_60_50_10_tanh_0.3.h5')
+    model = models.load_model('./models/20000_3_60_40_30_relu_0.3.h5')
     
     converter = tf.lite.TFLiteConverter.from_keras_model(model)
     converter.optimizations = [tf.lite.Optimize.DEFAULT]

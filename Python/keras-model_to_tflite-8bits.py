@@ -7,7 +7,7 @@ from My_Functions import train_data
 
 
 def data():
-    sampleRate = 30000
+    sampleRate = 20000
     x_train , _ = train_data(sampleRate)
     x_train = np.float32(x_train)
     return x_train
@@ -20,7 +20,7 @@ def representative_data_gen():
 
 if __name__ == '__main__':
     models = tf.keras.models
-    model = models.load_model('./models/30000_3_60_50_10_tanh_0.3.h5')
+    model = models.load_model('./models/20000_3_60_40_30_relu_0.3.h5')
     
     converter = tf.lite.TFLiteConverter.from_keras_model(model)
     converter.optimizations = [tf.lite.Optimize.DEFAULT]
