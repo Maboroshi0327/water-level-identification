@@ -9,17 +9,17 @@ def create_model(x_train, y_train, x_test, y_test):
     input_layer = layers.Input(shape=(1249))
 
     # Hidden Layer
-    dense_layer_1 = layers.Dense(30)(input_layer)
-    dense_layer_1 = layers.Activation('relu')(dense_layer_1)
+    dense_layer_1 = layers.Dense(60)(input_layer)
+    dense_layer_1 = layers.Activation('tanh')(dense_layer_1)
 
-    dense_layer_2 = layers.Dense(60)(dense_layer_1)
-    dense_layer_2 = layers.Activation('relu')(dense_layer_2)
+    dense_layer_2 = layers.Dense(50)(dense_layer_1)
+    dense_layer_2 = layers.Activation('tanh')(dense_layer_2)
 
-    # dense_layer_3 = layers.Dense(30)(dense_layer_2)
-    # dense_layer_3 = layers.Activation('relu')(dense_layer_3)
+    dense_layer_3 = layers.Dense(10)(dense_layer_2)
+    dense_layer_3 = layers.Activation('tanh')(dense_layer_3)
 
     # Dropout Layer
-    dropout_layer = layers.Dropout(0.3)(dense_layer_2)
+    dropout_layer = layers.Dropout(0.3)(dense_layer_3)
 
     # Output Layer
     output_layer = layers.Dense(5)(dropout_layer)
@@ -38,7 +38,7 @@ def create_model(x_train, y_train, x_test, y_test):
 # -------------------------------------------------------------------------------------------------
 # training & testing Data processing
 if __name__ == '__main__':
-    sampleRate = 20000
+    sampleRate = 30000
     x_train, y_train = train_data(sampleRate)
     x_test, y_test = test_data(sampleRate)
     result = create_model(x_train, y_train, x_test, y_test)

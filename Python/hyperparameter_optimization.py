@@ -84,9 +84,6 @@ if __name__ == '__main__':
                                           algo=tpe.suggest,
                                           max_evals=10,
                                           trials=Trials())
-    # x_train, x_train, x_test, y_test = data()
-    # print("Evalutation of best performing model:")
-    # print(best_model.evaluate(x_test, y_test, verbose=0))
+   
     print("Best performing model chosen hyper-parameters:")
     print(best_run)
-

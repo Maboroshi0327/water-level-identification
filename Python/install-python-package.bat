@@ -1,5 +1,5 @@
-pip install tensorflow==2.0.0
-pip install tensorflow-gpu==2.0.0
+pip install tensorflow==2.2.0
+pip install tensorflow-gpu==2.2.0
 pip install h5py==2.10.0
 pip install hyperas
 pip install keras==2.3.1

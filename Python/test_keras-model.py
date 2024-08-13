@@ -7,10 +7,10 @@ models = tf.keras.models
 from My_Functions import test_data
 
 
-sampleRate = 20000
+sampleRate = 30000
 x_test, y_test = test_data(sampleRate)
 
-model = models.load_model('./models/20000_3_30_60_30_relu_0.3.h5')
+model = models.load_model('./models/30000_3_60_50_10_tanh_0.3.h5')
 score = model.evaluate(x_test, y_test, verbose=0)
 print('Test loss:', score[0])
 print('Test accuracy:', score[1])
