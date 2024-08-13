@@ -1,0 +1,10 @@
+pip install tensorflow==2.0.0
+pip install tensorflow-gpu==2.0.0
+pip install h5py==2.10.0
+pip install hyperas
+pip install keras==2.3.1
+pip install networkx==1.11
+pip install scikit-learn
+pip install bayesian-optimization
+pip install protobuf==3.19.0
+pip install matplotlib
